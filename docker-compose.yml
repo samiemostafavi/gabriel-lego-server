@@ -1,4 +1,5 @@
 version: '3'
+
 services:
     gabriel_control:
         image: molguin/gabriel-lego:latest
