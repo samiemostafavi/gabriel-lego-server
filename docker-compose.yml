@@ -1,0 +1,54 @@
+version: '3'
+services:
+    gabriel_control:
+        image: molguin/gabriel-lego:latest
+        container_name: gabriel_control
+#        networks:
+#          - default
+        ports:
+            - 0.0.0.0:8021:8021
+            - 0.0.0.0:9098:9098
+            - 0.0.0.0:9111:9111
+            - 0.0.0.0:22222:22222
+            - 0.0.0.0:8080:8080
+            - 0.0.0.0:10120:10120
+            - 0.0.0.0:9090:9090
+            - 0.0.0.0:10101:10101
+        entrypoint:
+            - /bin/bash
+            - -c
+            - |
+                gabriel-control -l -d -n eth0;
+    gabriel_ucomm:
+        image: molguin/gabriel-lego:latest
+        container_name: gabriel_ucomm
+#        networks:
+#            - default
+        links:
+          - gabriel_control
+        depends_on:
+          - gabriel_control
+        entrypoint:
+            - /bin/bash
+            - -c
+            - |
+                sleep 5;
+                gabriel-ucomm -s gabriel_control:8021;
+    gabriel_lego:
+        image: molguin/gabriel-lego:latest
+        container_name: gabriel_lego
+#        networks:
+#            - default
+        depends_on:
+            - gabriel_control
+            - gabriel_ucomm
+        links:
+            - gabriel_control
+            - gabriel_ucomm
+        working_dir: /opt/gabriel-lego
+        entrypoint:
+            - /bin/bash
+            - -c
+            - |
+                sleep 15;
+                python proxy.py -s gabriel_control:8021
