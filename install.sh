@@ -20,7 +20,8 @@ chmod +x Miniconda-latest-Linux-x86_64.sh
 
 conda create -y -n py27 python=2.7
 source activate py27
-conda install opencv=2.4.9
+conda install opencv=2.4
+pip install --upgrade pip==9
 
 cd gabriel-lego-server
 pip install -r requirements.txt
