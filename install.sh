@@ -10,6 +10,7 @@ apt-get install -y \
     build-essential \
     pkg-config \
     default-jre \
+    screen \
     git
 
 git clone https://github.com/samiemostafavi/gabriel-lego-server.git
