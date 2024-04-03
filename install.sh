@@ -18,6 +18,7 @@ git clone https://github.com/samiemostafavi/gabriel-lego-server.git
 wget -c http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
 chmod +x Miniconda-latest-Linux-x86_64.sh
 ./Miniconda-latest-Linux-x86_64.sh
+source .bashrc
 
 conda create -y -n py27 python=2.7
 source activate py27
