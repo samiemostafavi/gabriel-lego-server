@@ -22,7 +22,7 @@ source .bashrc
 
 conda create -y -n py27 python=2.7
 source activate py27
-conda install opencv=2.4
+conda install opencv=2.4.9
 pip install --upgrade pip==9
 
 cd gabriel-lego-server
