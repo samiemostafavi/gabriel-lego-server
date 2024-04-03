@@ -29,9 +29,9 @@ cd gabriel-lego-server
 pip install -r requirements.txt
 python setup.py install
 
-# Now create 3 screen sessions to run 3 python apps at the same time
+# Now we create 3 screen sessions to run 3 python apps at the same time:
 
-# Run control app in control session
+# control app
 # create and enter a new session named control by
 screen -S control
 # run control app by
@@ -40,16 +40,16 @@ python /root/miniconda2/envs/py27/bin/gabriel-control -l -d -n net1
 # then detach from this screen session by:
 # press 'ctrl' and 'a' at the same time, and then press 'd'
 
-# Run ucom app in ucom session
-screen -S ucom
+# ucom app
 # create and enter a new session named ucom by
+screen -S ucom
 source activate py27
 # run ucom app by
 python /root/miniconda2/envs/py27/bin/gabriel-ucomm -s localhost:8021
 # then detach from this screen session by:
 # first, press 'ctrl' and 'a' at the same time, and then press 'd' to detach from the session
 
-# Run lego-server app in lego session
+# lego-server app
 # create and enter a new session named lego by
 screen -S lego
 # run lego-server app by
