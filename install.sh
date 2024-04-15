@@ -20,9 +20,9 @@ chmod +x Miniconda-latest-Linux-x86_64.sh
 ./Miniconda-latest-Linux-x86_64.sh
 source .bashrc
 
+conda config --set ssl_verify false
 conda create -y -n py27 python=2.7
 source activate py27
-conda config --set ssl_verify false
 conda install opencv=2.4.9
 pip install --upgrade pip==9
 
